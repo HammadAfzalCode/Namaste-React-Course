@@ -8,9 +8,16 @@ const Cart = () => {
     dispatch(clearCart());
   };
   const cartItems = useSelector((store) => store.cart.items);
+  const gradientStyle = {
+    background: "linear-gradient(to right, #f00, #f00, #600)",
+    WebkitBackgroundClip: "text",
+    color: "transparent",
+  };
   return (
-    <div className="text-center m-4 p-4">
-      <h1 className="text-2xl font-bold">Cart</h1>
+    <div className="text-center m-4 p-4 h-screen">
+      <h1 className="text-2xl font-bold" style={gradientStyle}>
+        Cart
+      </h1>
       <div className="w-6/12 m-auto">
         <button
           onClick={handleClearCart}

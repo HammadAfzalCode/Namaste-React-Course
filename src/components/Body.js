@@ -37,18 +37,19 @@ const Body = () => {
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="filter flex">
-        <div className="search p-4 m-4">
+    <div className="body w-full">
+      <div className="flex flex-col items-center w-full">
+        <div className="search p-4 w-full max-w-lg mx-auto ">
           <input
-          data-testid = 'searchInput'
+            placeholder="Search using restaurant name"
+            data-testid="searchInput"
             type="text"
-            className="border border-black "
+            className="border border-black rounded-l-lg w-[80%] p-2   "
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
           <button
-            className="px-4 py-2 bg-green-100 m-4 rounded-lg "
+            className=" bg-red-600 text-white p-2 border border-black rounded-r-lg hover:bg-red-500   "
             onClick={() => {
               const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -59,7 +60,7 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="search p-4 m-4 flex items-center">
+        {/* <div className="search p-4 m-4 flex items-center">
           <button
             className="px-4 py-2 bg-gray-100 rounded-lg "
             onClick={() => {
@@ -71,17 +72,17 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
-        </div>
-        <div className="search p-4 m-4 flex items-center">
-          <label>Username</label>
+        </div> */}
+        {/* <div className="search p-4 m-4 flex items-center"> */}
+        {/* <label>Username</label>
           <input
             className="border border-black p-2"
             value={loggedInUser}
             onChange={(e) => setUserName(e.target.value)}
-          />
-        </div>
+          /> */}
+        {/* </div> */}
       </div>
-      <div className=" flex flex-wrap">
+      <div className="flex flex-wrap w-full ml-[100px] ">
         {filteredRestaurant.map((restaurant) => (
           <Link
             key={restaurant.info.id}
